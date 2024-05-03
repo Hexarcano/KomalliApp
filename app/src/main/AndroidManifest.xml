@@ -13,52 +13,52 @@
         android:theme="@style/Theme.KomalliApp"
         tools:targetApi="31">
         <activity
-            android:name=".activityNav"
+            android:name=".ActivityNav"
             android:exported="false" />
         <activity
-            android:name=".activityOtros"
+            android:name=".ActivityOtros"
             android:exported="false" />
         <activity
-            android:name=".activityPostres"
+            android:name=".ActivityPostres"
             android:exported="false" />
         <activity
-            android:name=".activityBebidas"
+            android:name=".ActivityBebidas"
             android:exported="false" />
         <activity
-            android:name=".activitySandwichTortas"
+            android:name=".ActivitySandwichTortas"
             android:exported="false" />
         <activity
-            android:name=".activityGuarniciones"
+            android:name=".ActivityGuarniciones"
             android:exported="false" />
         <activity
-            android:name=".activityAntojitos"
+            android:name=".ActivityAntojitos"
             android:exported="false" />
         <activity
-            android:name=".activityTarjeta"
+            android:name=".ActivityTarjeta"
             android:exported="false" />
         <activity
-            android:name=".activityEfectivo"
+            android:name=".ActivityEfectivo"
             android:exported="false" />
         <activity
             android:name=".activityMetodos"
             android:exported="false" />
         <activity
-            android:name=".activity_ayuda"
+            android:name=".ActivityAyuda"
             android:exported="false" />
         <activity
-            android:name=".activityNota"
+            android:name=".ActivityNota"
             android:exported="false" />
         <activity
-            android:name=".activityOrden"
+            android:name=".ActivityOrden"
             android:exported="false" />
         <activity
             android:name=".activutyOrden"
             android:exported="false" />
         <activity
-            android:name=".activity_carrito_vacio"
+            android:name=".ActivityCarrito"
             android:exported="false" />
         <activity
-            android:name=".activityMenuPaquetes"
+            android:name=".ActivityMenuPaquetes"
             android:exported="false" />
         <activity
             android:name=".ActivityMenu"
