@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activityNav">
+
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="50dp"
+        android:background="#33b249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="685dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UNIVERSIDAD VERACRUZANA"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="422dp"
+        android:layout_height="147dp"
+        android:background="#33b249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="36dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/voluntariado" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/komalli2" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/voluntariado" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/comedores" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="176dp"
+        android:text="Menu"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/br_menu2"
+        android:layout_width="29dp"
+        android:layout_height="36dp"
+        android:src="@drawable/menu___copia"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="200dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="271dp"
+        android:layout_height="393dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="268dp"
+        app:cardBackgroundColor="#defbe3"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Principal"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paquetes"
+                tools:layout_editor_absoluteX="60dp"
+                tools:layout_editor_absoluteY="61dp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Antojitos"
+                tools:layout_editor_absoluteX="59dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tortas y sandwiches"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="142dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guarniciones"
+                tools:layout_editor_absoluteX="57dp"
+                tools:layout_editor_absoluteY="187dp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bebidas"
+                tools:layout_editor_absoluteX="57dp"
+                tools:layout_editor_absoluteY="226dp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Postres"
+                tools:layout_editor_absoluteX="57dp"
+                tools:layout_editor_absoluteY="271dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otros"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="317dp" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="186dp">
+
+            </ImageView>
+
+            <ImageButton
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="209dp"
+                tools:layout_editor_absoluteY="20dp">
+
+            </ImageButton>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="145dp">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="105dp">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="64dp">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="321dp">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="275dp">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                tools:layout_editor_absoluteX="213dp"
+                tools:layout_editor_absoluteY="229dp">
+
+            </ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
