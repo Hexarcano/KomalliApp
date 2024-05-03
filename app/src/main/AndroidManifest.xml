@@ -13,6 +13,60 @@
         android:theme="@style/Theme.KomalliApp"
         tools:targetApi="31">
         <activity
+            android:name=".activityNav"
+            android:exported="false" />
+        <activity
+            android:name=".activityOtros"
+            android:exported="false" />
+        <activity
+            android:name=".activityPostres"
+            android:exported="false" />
+        <activity
+            android:name=".activityBebidas"
+            android:exported="false" />
+        <activity
+            android:name=".activitySandwichTortas"
+            android:exported="false" />
+        <activity
+            android:name=".activityGuarniciones"
+            android:exported="false" />
+        <activity
+            android:name=".activityAntojitos"
+            android:exported="false" />
+        <activity
+            android:name=".activityTarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".activityEfectivo"
+            android:exported="false" />
+        <activity
+            android:name=".activityMetodos"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ayuda"
+            android:exported="false" />
+        <activity
+            android:name=".activityNota"
+            android:exported="false" />
+        <activity
+            android:name=".activityOrden"
+            android:exported="false" />
+        <activity
+            android:name=".activutyOrden"
+            android:exported="false" />
+        <activity
+            android:name=".activity_carrito_vacio"
+            android:exported="false" />
+        <activity
+            android:name=".activityMenuPaquetes"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMenu"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLogin"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
