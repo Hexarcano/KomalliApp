@@ -191,14 +191,14 @@
 
             </ImageView>
 
-            <ImageButton
+            <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
                 tools:layout_editor_absoluteX="209dp"
                 tools:layout_editor_absoluteY="20dp">
 
-            </ImageButton>
+            </ImageView>
 
             <ImageView
                 android:layout_width="15dp"

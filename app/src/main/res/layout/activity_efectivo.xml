@@ -79,9 +79,9 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:layout_marginEnd="136dp"
-        android:text="Pago en Efectivo"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="192dp"
+        android:text="Pagos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
