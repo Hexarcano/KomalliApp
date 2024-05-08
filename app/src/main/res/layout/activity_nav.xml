@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="685dp">
 
         <TextView
-            android:id="@+id/textView5"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="UNIVERSIDAD VERACRUZANA"
@@ -35,7 +35,6 @@
         tools:layout_editor_absoluteY="36dp">
 
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dip"
@@ -98,7 +97,7 @@
         android:id="@+id/br_menuS3"
         android:layout_width="29dp"
         android:layout_height="36dp"
-        android:src="@drawable/menu___copia"
+        android:src="@drawable/menu"
         tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="200dp" />
 

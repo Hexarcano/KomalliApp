@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">KomalliApp</string>
+    <string name="nombre_fei_mayus">FACULTAD DE ESTADÍSTICA E INFORMATICA</string>
+    <string name="categoria">Categoría</string>
+    <string name="producto">Producto:</string>
+    <string name="precio">Precio:</string>
+    <string name="plus">+</string>
+    <string name="nombre_uv_mayus">UNIVERSIDAD VERACRUZANA</string>
+    <string name="regresar">Regresar</string>
+    <string name="pago">Pago</string>
+    <string name="metodos_de_pago">Métodos de pago</string>
 </resources>

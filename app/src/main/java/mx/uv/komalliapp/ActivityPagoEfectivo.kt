@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class ActivitySandwichTortas : AppCompatActivity() {
+class ActivityPagoEfectivo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_sandwich_tortas)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.br_menuS1)) { v, insets ->
+        setContentView(R.layout.activity_pago_efectivo)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.br_menuS)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

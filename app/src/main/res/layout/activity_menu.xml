@@ -14,7 +14,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="204dp"
-        android:src="@drawable/menu___copia"
+        android:src="@drawable/menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_height="36dp"
         android:layout_marginTop="204dp"
         android:layout_marginEnd="36dp"
-        android:src="@drawable/carritocompras"
+        android:src="@drawable/carrito_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

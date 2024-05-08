@@ -13,85 +13,19 @@
         android:theme="@style/Theme.KomalliApp"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityPostres5"
+            android:name=".ActivitySeleccionPago"
             android:exported="false" />
         <activity
-            android:name=".ActivityPostres4"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityGuarniciones2"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityPostres3"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityPostres2"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityOtros2"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitySandwichTortas4"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitySandwichTortas3"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitySandwichTortas2"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityAntojitos5"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityAntojitos4"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityAntojitos3"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityAntojitos2"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityMenuPaquetes4"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityMenuPaquetes3"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityMenuPaquetes2"
-            android:exported="false" />
-        <activity
-            android:name=".activityDeslizante"
+            android:name=".ActivityCategoria"
             android:exported="false" />
         <activity
             android:name=".ActivityNav"
             android:exported="false" />
         <activity
-            android:name=".ActivityOtros"
+            android:name=".ActivityPagoTarjeta"
             android:exported="false" />
         <activity
-            android:name=".ActivityPostres"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityBebidas"
-            android:exported="false" />
-        <activity
-            android:name=".ActivitySandwichTortas"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityGuarniciones"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityAntojitos"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityTarjeta"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityEfectivo"
-            android:exported="false" />
-        <activity
-            android:name=".activityMetodos"
+            android:name=".ActivityPagoEfectivo"
             android:exported="false" />
         <activity
             android:name=".ActivityAyuda"
@@ -101,9 +35,6 @@
             android:exported="false" />
         <activity
             android:name=".ActivityOrden"
-            android:exported="false" />
-        <activity
-            android:name=".activutyOrden"
             android:exported="false" />
         <activity
             android:name=".ActivityCarrito"
@@ -116,16 +47,14 @@
             android:exported="false" />
         <activity
             android:name=".ActivityLogin"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
