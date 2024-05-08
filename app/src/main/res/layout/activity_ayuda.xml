@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityAyuda">
@@ -74,12 +74,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/comedores" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btn_regresar4"
         android:layout_width="29dp"
         android:layout_height="36dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="228dp"
         android:src="@drawable/flecha_izquierda"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -97,10 +97,11 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="228dp"
         android:layout_marginEnd="84dp"
         android:text="Ayuda y Documentacion"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,6 +111,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="356dp"
         android:text="Metodos de Pago: Los metodos de pago disponibles son por tarjeta y pagi en efectivo. Una vez ze halla realizado el pago por tarjeta no se podra realizar cambios en los datos proporcionados"
+        android:textSize="16sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,8 +120,10 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="208dp"
         android:text="Acerca de Komalli: Komalli es un comedor universitario, fue inaugurado en febrero del 2024, se encuentra ubicado en la facultad de estadistica e informatica."
+        android:textSize="16sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

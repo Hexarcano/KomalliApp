@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#33b249"
@@ -117,29 +117,61 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="4dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="4dp">
 
             <Button
                 android:id="@+id/bt_agreagarPro"
-                android:layout_width="55dp"
+                android:layout_width="53dp"
                 android:layout_height="50dp"
+                android:layout_marginEnd="120dp"
+                android:layout_marginBottom="88dp"
                 android:backgroundTint="#c2c2c2"
                 android:text="+"
                 app:cornerRadius="15px"
-                tools:layout_editor_absoluteX="191dp"
-                tools:layout_editor_absoluteY="74dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="55dp"
+                android:layout_width="53dp"
                 android:layout_height="50dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="88dp"
                 android:backgroundTint="#c2c2c2"
                 android:text="-"
                 app:cornerRadius="15px"
-                tools:layout_editor_absoluteX="266dp"
-                tools:layout_editor_absoluteY="71dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="164dp"
+                android:layout_marginTop="12dp"
+                android:text="Producto: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="164dp"
+                android:layout_marginBottom="152dp"
+                android:text="Precio:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: "
+                tools:layout_editor_absoluteX="174dp"
+                tools:layout_editor_absoluteY="174dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

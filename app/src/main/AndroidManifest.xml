@@ -13,6 +13,57 @@
         android:theme="@style/Theme.KomalliApp"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityPostres5"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityPostres4"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityGuarniciones2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityPostres3"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityPostres2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityOtros2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySandwichTortas4"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySandwichTortas3"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySandwichTortas2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAntojitos5"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAntojitos4"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAntojitos3"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAntojitos2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMenuPaquetes4"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMenuPaquetes3"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMenuPaquetes2"
+            android:exported="false" />
+        <activity
+            android:name=".activityDeslizante"
+            android:exported="false" />
+        <activity
             android:name=".ActivityNav"
             android:exported="false" />
         <activity

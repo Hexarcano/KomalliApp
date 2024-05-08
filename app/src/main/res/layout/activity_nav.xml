@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityNav">
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/br_menu2"
+        android:id="@+id/br_menuS3"
         android:layout_width="29dp"
         android:layout_height="36dp"
         android:src="@drawable/menu___copia"
@@ -196,7 +196,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
                 tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="20dp">
+                tools:layout_editor_absoluteY="16dp">
 
             </ImageView>
 
@@ -258,5 +258,6 @@
 
 
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

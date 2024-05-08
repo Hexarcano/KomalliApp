@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityEfectivo">
@@ -79,19 +79,29 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="192dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="180dp"
         android:text="Pagos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="268dp"
+        android:src="@drawable/dinero_prestamos_efectivo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_efectivo2"
         android:layout_width="75dp"
         android:layout_height="61dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="268dp"
         android:src="@drawable/tarjeta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,19 +110,75 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="340dp"
-        android:layout_marginEnd="184dp"
-        android:text="Pedido"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="144dp"
+        android:text="Pago en efectivo"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="352dp"
+        android:layout_height="227dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="348dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView105"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="144dp"
+                android:text="Pedido"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView106"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="65dp" />
+
+            <TextView
+                android:id="@+id/textView107"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto"
+                tools:layout_editor_absoluteX="36dp"
+                tools:layout_editor_absoluteY="113dp" />
+
+            <TextView
+                android:id="@+id/textView108"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                tools:layout_editor_absoluteX="144dp"
+                tools:layout_editor_absoluteY="184dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="379dp"
-        android:layout_height="79dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="112dp"
+        android:layout_width="390dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="48dp"
         android:text="El comedor Komalli se encuentra en la facultad de estadistica e informatica. Direccion Av. Xalapa ESQ.MANUEL AVILA CAMACHO S/N"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="El comedor Komalli se encuentra en la Facultad de estadisca e informatica. Direccion AV. Xalapa ESQ. MANUEL AVILA CAMACHO S/N" />

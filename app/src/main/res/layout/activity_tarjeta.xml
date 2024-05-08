@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityTarjeta">
@@ -78,9 +78,11 @@
     <ImageView
         android:layout_width="29dp"
         android:layout_height="36dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="204dp"
         android:src="@drawable/flecha_izquierda"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="204dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView9"

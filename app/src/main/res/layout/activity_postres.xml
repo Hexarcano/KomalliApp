@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/br_menuS"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityPostres">
@@ -25,7 +25,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/br_menu2"
+        android:id="@+id/br_menuP"
         android:layout_width="29dp"
         android:layout_height="36dp"
         android:layout_marginStart="36dp"
@@ -119,6 +119,38 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id=""
+                android:layout_width="55dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="80dp"
+                android:backgroundTint="#33b249"
+                android:text="+"
+                app:cornerRadius="15px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Producto: Muffin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView94"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="76dp"
+                android:text="Precio: $ 22"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -137,6 +169,38 @@
             android:padding="4dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <Button
+                android:id=""
+                android:layout_width="55dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="80dp"
+                android:backgroundTint="#33b249"
+                android:text="+"
+                app:cornerRadius="15px"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Producto: ChocaFlan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView96"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="76dp"
+                android:text="Precio: $ 31"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
