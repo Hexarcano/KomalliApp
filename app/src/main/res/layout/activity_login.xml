@@ -7,84 +7,79 @@
     android:layout_height="match_parent"
     tools:context=".ActivityLogin">
 
-    <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="47dp"
-        android:background="#33b249"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="688dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="UNIVERSIDAD VERACRUNZANA"
-            android:textAlignment="center"
-            android:textColor="#ffffff" />
-    </LinearLayout>
-
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/logo"
         android:layout_width="194dp"
         android:layout_height="178dp"
         android:layout_marginTop="112dp"
-        android:layout_marginEnd="108dp"
+        android:importantForAccessibility="no"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/komalli2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="78dp"
         android:layout_marginTop="324dp"
-        android:text="Usuario"
+        android:text="@string/usuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="436dp"
-        android:text="Constraseña"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:labelFor="@id/et_usuario"/>
 
     <EditText
-        android:id="@+id/tx_usuario"
+        android:id="@+id/et_usuario"
         android:layout_width="271dp"
         android:layout_height="43dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_usuario"
+        android:importantForAutofill="no" />
 
-    <Button
-        android:id="@+id/bt_sesion"
+    <TextView
+        android:id="@+id/tv_contrasenia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="140dp"
-        android:backgroundTint="#33b249"
-        android:text="Iniciar Sesion"
-        app:cornerRadius="10px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/contrasenia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_usuario" />
 
     <EditText
-        android:id="@+id/tx_password"
+        android:id="@+id/et_contrasenia"
         android:layout_width="271dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_contrasenia" />
+
+    <Button
+        android:id="@+id/btn_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:backgroundTint="#33b249"
+        android:text="@string/iniciar_sesion"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_contrasenia" />
+
+    <include layout="@layout/footer_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

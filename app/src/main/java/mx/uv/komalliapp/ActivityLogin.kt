@@ -2,32 +2,51 @@ package mx.uv.komalliapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.koushikdutta.ion.Ion
+import mx.uv.komalliapp.databinding.ActivityLoginBinding
+import mx.uv.komalliapp.models.DatosLogin
+import mx.uv.komalliapp.models.DatosSesionRespuesta
+import mx.uv.komalliapp.requests.PeticionHTTP
 
 class ActivityLogin : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Ion.getDefault(this@ActivityLogin).conscryptMiddleware.enable(false)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
 
-        val bt_inicio = findViewById<Button>(R.id.bt_sesion)
-        val texUsuario = findViewById<EditText>(R.id.tx_usuario)
-        val texPass = findViewById<EditText>(R.id.tx_password)
+        setContentView(binding.root)
 
-        bt_inicio.setOnClickListener{
-            val usuario = texUsuario.text.toString()
-            val pass = texPass.text.toString()
+        binding.btnSesion.setOnClickListener {
+            val usuario = binding.etUsuario.text.toString()
+            val contrasenia = binding.etContrasenia.text.toString()
 
-            if(usuario == "juli"){
-                if(pass == "juli"){
-                    val intent = Intent(this, ActivityMenu::class.java)
-                    intent.putExtra("usuario",usuario)
-                    startActivity(intent)
+            if (validarDatos(usuario, contrasenia)) {
+                val datosLogin = DatosLogin(usuario, contrasenia)
+
+                PeticionHTTP.peticionPOST(
+                    this@ActivityLogin,
+                    datosLogin,
+                    DatosSesionRespuesta::class.java,
+                    "api/cliente/login"
+                ) { exito, respuesta ->
+                    val datos = respuesta as DatosSesionRespuesta
+
+                    if (datos.accessToken.isNullOrBlank()) {
+                        Toast.makeText(this@ActivityLogin, datos.mensaje, LENGTH_LONG).show()
+                    }
+
+                    if(exito && !datos.accessToken.isNullOrBlank()) {
+                        cambiarPantalla(datos)
+                    }
                 }
             }
         }
@@ -37,5 +56,21 @@ class ActivityLogin : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun validarDatos(usuario: String, contrasenia: String): Boolean {
+        if (usuario.isBlank() || contrasenia.isBlank()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private fun cambiarPantalla(datosSesionRespuesta: DatosSesionRespuesta) {
+        val intent = Intent(this, ActivityMenu::class.java)
+        val authHeader = "${datosSesionRespuesta.tokenType} ${datosSesionRespuesta.accessToken}"
+
+        intent.putExtra("authHeader", authHeader)
+        startActivity(intent)
     }
 }
