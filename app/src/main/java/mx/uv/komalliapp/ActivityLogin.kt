@@ -1,6 +1,8 @@
 package mx.uv.komalliapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
@@ -60,17 +62,23 @@ class ActivityLogin : AppCompatActivity() {
 
     private fun validarDatos(usuario: String, contrasenia: String): Boolean {
         if (usuario.isBlank() || contrasenia.isBlank()) {
-            return false;
+            return false
         }
 
-        return true;
+        return true
     }
 
     private fun cambiarPantalla(datosSesionRespuesta: DatosSesionRespuesta) {
         val intent = Intent(this, ActivityMenu::class.java)
-        val authHeader = "${datosSesionRespuesta.tokenType} ${datosSesionRespuesta.accessToken}"
+        val token = "${datosSesionRespuesta.tokenType} ${datosSesionRespuesta.accessToken}"
 
-        intent.putExtra("authHeader", authHeader)
+        val sharedPreferences = getSharedPreferences("sesion", Context.MODE_PRIVATE)
+
+        with(sharedPreferences.edit()){
+            putString("token", token)
+            apply()
+        }
+
         startActivity(intent)
     }
 }

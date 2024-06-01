@@ -2,9 +2,7 @@ package mx.uv.komalliapp.requests
 
 import android.content.Context
 import com.google.gson.Gson
-import com.google.gson.JsonParseException
 import com.koushikdutta.ion.Ion
-import mx.uv.komalliapp.models.DatosLogin
 import mx.uv.komalliapp.models.ISerializable
 import mx.uv.komalliapp.models.DatosSesionRespuesta
 import mx.uv.komalliapp.utils.Constantes
@@ -36,7 +34,7 @@ class PeticionHTTP {
                         val gson = Gson()
 
                         if (error != null) {
-                            respuestaCallback(false, respuestaError("Error en la petición"))
+                            respuestaCallback(false, respuestaSesionError("Error en la petición"))
                         } else {
                             val respuesta = gson.fromJson(result, tipoRespuesta)
 
@@ -46,8 +44,36 @@ class PeticionHTTP {
                 }
         }
 
-        private fun respuestaError(message: String): DatosSesionRespuesta {
+        private fun respuestaSesionError(message: String): DatosSesionRespuesta {
             return DatosSesionRespuesta(null, null, message)
+        }
+
+        fun <T: ISerializable> peticionGET(
+            context: Context,
+            id: String,
+            tipoRespuesta: Class<T>,
+            path: String,
+            token: String?,
+            respuestaCallback: (Boolean, ISerializable) -> Unit
+        ) {
+            Ion.with(context)
+                .load("GET", "${Constantes.urlBase}/${path}/${id}")
+                .setHeader("Content-Type", "application/json")
+                .setHeader("Authorization", token)
+                .asString()
+                .setCallback { error, result ->
+                    run {
+                        val gson = Gson()
+
+                        if (error != null) {
+                            respuestaCallback(false, respuestaSesionError("Error en la petición"))
+                        } else {
+                            val respuesta = gson.fromJson(result, tipoRespuesta)
+
+                            respuestaCallback(true, respuesta)
+                        }
+                    }
+                }
         }
     }
 }
