@@ -7,124 +7,71 @@
     android:layout_height="match_parent"
     tools:context=".ActivityAyuda">
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="417dp"
-        android:layout_height="52dp"
-        android:background="#33B249"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="683dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="UNIVERSIDAD VERACRUZANA"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="422dp"
-        android:layout_height="147dp"
-        android:background="#33b249"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-7dp"
-        tools:layout_editor_absoluteY="36dp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="96dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="36dp"
+    <include
+        android:id="@+id/logos"
+        layout="@layout/logos_institucionales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/voluntariado" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="96dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/komalli2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="96dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="76dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/comedores" />
-
-    <ImageView
-        android:id="@+id/btn_regresar4"
+        android:id="@+id/btn_regresar"
         android:layout_width="29dp"
         android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/regresar"
         android:src="@drawable/flecha_izquierda"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/tv_tituloAyuda"
+        app:layout_constraintTop_toBottomOf="@+id/logos" />
 
     <ImageView
         android:layout_width="29dp"
         android:layout_height="36dp"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:importantForAccessibility="no"
         android:src="@drawable/recepcionista"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tv_tituloAyuda"
+        app:layout_constraintTop_toBottomOf="@+id/logos" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_tituloAyuda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="84dp"
-        android:text="Ayuda y Documentacion"
+        android:layout_marginTop="50dp"
+        android:text="@string/ayuda_y_documentacion"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logos" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_info_pago"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="356dp"
-        android:text="Metodos de Pago: Los metodos de pago disponibles son por tarjeta y pagi en efectivo. Una vez ze halla realizado el pago por tarjeta no se podra realizar cambios en los datos proporcionados"
-        android:textSize="16sp"
+        android:layout_margin="50dp"
         android:gravity="center"
+        android:text="@string/info_metodo_pago"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tituloAyuda" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_info_komalli"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="208dp"
-        android:text="Acerca de Komalli: Komalli es un comedor universitario, fue inaugurado en febrero del 2024, se encuentra ubicado en la facultad de estadistica e informatica."
-        android:textSize="16sp"
+        android:layout_margin="50dp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/info_komalli"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info_pago" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

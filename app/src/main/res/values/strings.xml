@@ -15,4 +15,9 @@
     <string name="productos_poulares">Productos poulares</string>
     <string name="categoriaAlt">Categoria:</string>
     <string name="placeholder">PlaceHolder</string>
+    <string name="ayuda_y_documentacion">Ayuda y Documentación</string>
+    <string name="info_metodo_pago">Métodos de Pago: Los métodos de pago disponibles son por tarjeta y pago en efectivo.\n\nUna vez se haya realizado el pago por tarjeta no se podra realizar cambios en los datos proporcionados</string>
+    <string name="info_komalli">Acerca de Komalli: Komalli es un comedor universitario inaugurado en febrero del 2024 ubicado en la facultad de estadística e informática.</string>
+    <string name="orden_vacia">La orden está vacía</string>
+    <string name="regresar_menu">Regresar al menú</string>
 </resources>
