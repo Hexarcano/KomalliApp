@@ -5,5 +5,5 @@ class DatosSesionRespuesta(
     var accessToken: String? = null,
     var mensaje: String? = null
 ) : ISerializable {
-    constructor() : this(null, null, null) {}
+    constructor() : this(null, null, null)
 }

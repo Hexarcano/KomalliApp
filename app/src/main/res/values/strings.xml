@@ -20,4 +20,5 @@
     <string name="info_komalli">Acerca de Komalli: Komalli es un comedor universitario inaugurado en febrero del 2024 ubicado en la facultad de estadística e informática.</string>
     <string name="orden_vacia">La orden está vacía</string>
     <string name="regresar_menu">Regresar al menú</string>
+    <string name="menu">Menú</string>
 </resources>

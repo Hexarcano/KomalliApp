@@ -2,7 +2,6 @@ package mx.uv.komalliapp
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
@@ -46,7 +45,7 @@ class ActivityLogin : AppCompatActivity() {
                         Toast.makeText(this@ActivityLogin, datos.mensaje, LENGTH_LONG).show()
                     }
 
-                    if(exito && !datos.accessToken.isNullOrBlank()) {
+                    if (exito && !datos.accessToken.isNullOrBlank()) {
                         cambiarPantalla(datos)
                     }
                 }
@@ -61,11 +60,7 @@ class ActivityLogin : AppCompatActivity() {
     }
 
     private fun validarDatos(usuario: String, contrasenia: String): Boolean {
-        if (usuario.isBlank() || contrasenia.isBlank()) {
-            return false
-        }
-
-        return true
+        return !(usuario.isBlank() || contrasenia.isBlank())
     }
 
     private fun cambiarPantalla(datosSesionRespuesta: DatosSesionRespuesta) {
@@ -74,7 +69,7 @@ class ActivityLogin : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("sesion", Context.MODE_PRIVATE)
 
-        with(sharedPreferences.edit()){
+        with(sharedPreferences.edit()) {
             putString("token", token)
             apply()
         }

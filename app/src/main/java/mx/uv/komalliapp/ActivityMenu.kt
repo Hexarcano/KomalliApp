@@ -1,5 +1,6 @@
 package mx.uv.komalliapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,11 +19,9 @@ class ActivityMenu : AppCompatActivity() {
         enableEdgeToEdge()
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
         val sharedPreferences = this.getSharedPreferences("sesion", MODE_PRIVATE)
-
         val token = sharedPreferences.getString("token", "")
 
         PeticionHTTP.peticionGET(
@@ -31,14 +30,18 @@ class ActivityMenu : AppCompatActivity() {
             CategoriaProductoRespuesta::class.java,
             "api/CategoriaProducto",
             token
-        ) {
-            exito, result ->
+        ) { exito, result ->
 
             val datos = result as CategoriaProductoRespuesta
 
-            val linearLayoutManager = LinearLayoutManager(this@ActivityMenu, LinearLayoutManager.HORIZONTAL, false)
+            val linearLayoutManager =
+                LinearLayoutManager(this@ActivityMenu, LinearLayoutManager.HORIZONTAL, false)
 
-            val adapter = CategoriaRVAdapter(datos.categorias)
+            val adapter = CategoriaRVAdapter(datos.categorias) { categoria ->
+                val intent = Intent(this, ActivityCategoria::class.java)
+                intent.putExtra("categoriaId", categoria.id)
+                startActivity(intent)
+            }
             binding.rvCategorias.layoutManager = linearLayoutManager
             binding.rvCategorias.adapter = adapter
         }

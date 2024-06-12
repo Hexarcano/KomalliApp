@@ -1,4 +1,3 @@
 package mx.uv.komalliapp.models
 
-interface ISerializable {
-}
+interface ISerializable

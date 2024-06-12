@@ -11,14 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.uv.komalliapp.R
 import mx.uv.komalliapp.models.CategoriaProducto
 
-class CategoriaRVAdapter(val datos: List<CategoriaProducto>) : RecyclerView.Adapter<CategoriaRVAdapter.ItemCategoria>() {
+class CategoriaRVAdapter(
+    private val datos: List<CategoriaProducto>,
+    private val onItemClick: (CategoriaProducto) -> Unit
+) : RecyclerView.Adapter<CategoriaRVAdapter.ItemCategoria>() {
     class ItemCategoria(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvCategoria = itemView.findViewById<TextView>(R.id.tv_categoria)
         val ivCategoria = itemView.findViewById<ImageView>(R.id.iv_categoria)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemCategoria {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_categoria, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_categoria, parent, false)
         return ItemCategoria(view)
     }
 
@@ -33,5 +37,9 @@ class CategoriaRVAdapter(val datos: List<CategoriaProducto>) : RecyclerView.Adap
 
         itemCategoria.ivCategoria.setImageBitmap(bitmapImagen)
         itemCategoria.tvCategoria.text = datos[position].nombre
+
+        itemCategoria.itemView.setOnClickListener {
+            onItemClick(datosCategoria)
+        }
     }
 }

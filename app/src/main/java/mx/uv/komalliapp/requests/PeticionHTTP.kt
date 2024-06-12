@@ -48,7 +48,7 @@ class PeticionHTTP {
             return DatosSesionRespuesta(null, null, message)
         }
 
-        fun <T: ISerializable> peticionGET(
+        fun <T : ISerializable> peticionGET(
             context: Context,
             id: String,
             tipoRespuesta: Class<T>,
