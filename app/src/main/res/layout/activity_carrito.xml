@@ -8,6 +8,15 @@
     tools:context=".ActivityCarrito">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="422dp"
+        android:layout_height="147dp"
+        android:background="#33b249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <LinearLayout
         android:layout_width="417dp"
         android:layout_height="52dp"
         android:background="#33B249"
@@ -24,29 +33,11 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="422dp"
-        android:layout_height="147dp"
-        android:background="#33b249"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="38dp">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="96dp"
         android:layout_height="82dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +48,7 @@
         android:layout_width="96dp"
         android:layout_height="82dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/comedores" />
@@ -67,7 +58,7 @@
         android:layout_width="96dp"
         android:layout_height="82dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/komalli2" />
@@ -95,13 +86,13 @@
 
 
     <Button
-        android:id="@+id/bt_regresar"
+        android:id="@+id/bt_nota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="124dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="64dp"
         android:backgroundTint="#33b249"
-        android:text="Regresar al menu"
+        android:text="Agregar Nota"
         app:cornerRadius="10px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -113,7 +104,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="140dp"
         android:backgroundTint="#33b249"
-        android:text="Pagar"
+        android:text="Ir a pagar"
         app:cornerRadius="10px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -123,7 +114,7 @@
         android:layout_width="357dp"
         android:layout_height="269dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="228dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"

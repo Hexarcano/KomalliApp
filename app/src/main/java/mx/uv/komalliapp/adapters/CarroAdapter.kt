@@ -7,24 +7,38 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.uv.komalliapp.R
-import mx.uv.komalliapp.models.Producto
+import mx.uv.komalliapp.models.ProductoOrdenConsulta
 
-class CarroAdapter(private var productosEnCarrito: MutableList<Producto>) :
-    RecyclerView.Adapter<CarroAdapter.CarritoViewHolder>() {
+class CarroAdapter(
+    private val productosEnCarrito: List<ProductoOrdenConsulta>,
+    private val listener: OnItemClickListener
+) : RecyclerView.Adapter<CarroAdapter.CarroViewHolder>() {
 
-    private var listener: OnItemClickListener? = null
-
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.listener = listener
+    interface OnItemClickListener {
+        fun onItemClick(position: Int, eliminar: Boolean)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarritoViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_carrito, parent, false)
-        return CarritoViewHolder(view)
+    inner class CarroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val nombreProducto: TextView = itemView.findViewById(R.id.tv_productoUnitario)
+        private val precioProducto: TextView = itemView.findViewById(R.id.tv_precioUnitario)
+        private val btnDisminuir: Button = itemView.findViewById(R.id.btn_disminuir)
+
+        fun bind(producto: ProductoOrdenConsulta) {
+            nombreProducto.text = producto.productoId
+            precioProducto.text = "${producto.precioUnitario} MXN"
+
+            btnDisminuir.setOnClickListener {
+                listener.onItemClick(adapterPosition, true)
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: CarritoViewHolder, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarroViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_carrito, parent, false)
+        return CarroViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: CarroViewHolder, position: Int) {
         val producto = productosEnCarrito[position]
         holder.bind(producto)
     }
@@ -32,38 +46,4 @@ class CarroAdapter(private var productosEnCarrito: MutableList<Producto>) :
     override fun getItemCount(): Int {
         return productosEnCarrito.size
     }
-
-    inner class CarritoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nombreProductoTextView: TextView = itemView.findViewById(R.id.tv_productoCarrito)
-        private val precioProductoTextView: TextView = itemView.findViewById(R.id.tv_precioCarrito)
-        private val disminuirButton: Button = itemView.findViewById(R.id.btn_disminuir)
-
-        init {
-            disminuirButton.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    listener?.onItemClick(position, false)
-                    notifyItemChanged(position) // Notificar al adaptador sobre el cambio en la cantidad
-                }
-            }
-        }
-
-        fun bind(producto: Producto) {
-            nombreProductoTextView.text = producto.nombre
-            precioProductoTextView.text = producto.precio.toString()
-        }
-    }
-
-
-
-    interface OnItemClickListener {
-        fun onItemClick(position: Int, eliminar: Boolean)
-    }
-
-    fun actualizarProductosEnCarrito(nuevaListaProductos: List<Producto>) {
-        productosEnCarrito.clear()
-        productosEnCarrito.addAll(nuevaListaProductos)
-        notifyDataSetChanged()
-    }
-
 }

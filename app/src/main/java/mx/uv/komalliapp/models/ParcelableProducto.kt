@@ -3,7 +3,7 @@ package mx.uv.komalliapp.models
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Producto(
+data class ParcelableProducto(
     val id: Int,
     val nombre: String,
     val precio: Int,
@@ -17,9 +17,6 @@ data class Producto(
         parcel.readInt(),
         parcel.readInt()
     )
-    fun toParcelable(): ParcelableProducto {
-        return ParcelableProducto(id, nombre, precio,descuento,categoriaProductoId)
-    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
@@ -33,16 +30,17 @@ data class Producto(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Producto> {
-        override fun createFromParcel(parcel: Parcel): Producto {
-            return Producto(parcel)
+    companion object CREATOR : Parcelable.Creator<ParcelableProducto> {
+        override fun createFromParcel(parcel: Parcel): ParcelableProducto {
+            return ParcelableProducto(parcel)
         }
 
-        override fun newArray(size: Int): Array<Producto?> {
+        override fun newArray(size: Int): Array<ParcelableProducto?> {
             return arrayOfNulls(size)
         }
     }
 }
-fun Producto.toParcelable(): ParcelableProducto {
-    return ParcelableProducto(id, nombre, precio, descuento, categoriaProductoId)
+
+fun ParcelableProducto.toProducto(): Producto {
+    return Producto(id, nombre, precio, descuento, categoriaProductoId)
 }

@@ -18,7 +18,6 @@ class ProductoAdapter(private var productos: List<Producto>, private val categor
         this.listener = listener
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_producto, parent, false)
@@ -48,11 +47,6 @@ class ProductoAdapter(private var productos: List<Producto>, private val categor
         return productos.size
     }
 
-    fun actualizarProductos(nuevaListaProductos: List<Producto>) {
-        productos = nuevaListaProductos
-        notifyDataSetChanged()
-    }
-
     class ProductoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val btn_agregar: Button = itemView.findViewById(R.id.btn_agregar)
         val tvProducto: TextView = itemView.findViewById(R.id.tv_producto)
@@ -63,5 +57,4 @@ class ProductoAdapter(private var productos: List<Producto>, private val categor
     interface OnItemClickListener {
         fun onItemClick(producto: Producto)
     }
-
 }

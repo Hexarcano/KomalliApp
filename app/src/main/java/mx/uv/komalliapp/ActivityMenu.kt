@@ -1,9 +1,12 @@
 package mx.uv.komalliapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +19,9 @@ import mx.uv.komalliapp.models.CategoriaProducto
 import mx.uv.komalliapp.models.CategoriaProductoRespuesta
 import mx.uv.komalliapp.models.ParcelableProducto
 import mx.uv.komalliapp.models.Producto
+import mx.uv.komalliapp.models.ProductoOrdenConsulta
 import mx.uv.komalliapp.models.RespuestaProductos
+import mx.uv.komalliapp.models.toParcelable
 import mx.uv.komalliapp.requests.PeticionHTTP
 import mx.uv.komalliapp.utils.CategoriaRVAdapter
 
@@ -37,8 +42,12 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val productos = obtenerProductos()
+        productoAdapter = ProductoAdapter(productos, emptyList())
+        binding.recyclerProducto.layoutManager = LinearLayoutManager(this)
+        binding.recyclerProducto.adapter = productoAdapter
+
         val sharedPreferences = this.getSharedPreferences("sesion", MODE_PRIVATE)
-        //val token = sharedPreferences.getString("token", "")
         val token = obtenerTokenDeAutenticacion()
 
         val btMenu: ImageView = findViewById(R.id.btn_menu)
@@ -47,17 +56,20 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             startActivity(intent)
         }
 
-        val btCarrito: ImageView = findViewById(R.id.btn_carrito)
-        btCarrito.setOnClickListener {
+        // Configurar listener para el botón del carrito usando binding
+        val btnCarrito: ImageView = findViewById(R.id.btn_carrito)
+        btnCarrito.setOnClickListener {
+            Log.d("ActivityMenu", "Precio total a pasar al carrito: $precioTotalCarrito MXN")
+
             val intent = Intent(this, ActivityCarrito::class.java)
-            val productosParcelable = productosEnCarrito.map { ParcelableProducto(it) }
+            val productosParcelable = productosEnCarrito.map { it.toParcelable() }
             intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
             intent.putExtra("cantidad_productos", cantidadProductosAgregados)
             intent.putExtra("precio_total", precioTotalCarrito)
-            startActivity(intent)
+            startActivityForResult(intent, 1) // Usamos requestCode 1 (puede ser cualquier número único)
         }
 
-        // Obtener las categorías
+        productoAdapter.setOnItemClickListener(this)
         obtenerCategorias(token)
 
         PeticionHTTP.peticionGET(
@@ -70,13 +82,21 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             if (exito && result != null && result is CategoriaProductoRespuesta) {
                 val datos = result
 
-                val linearLayoutManager =
-                    LinearLayoutManager(this@ActivityMenu, LinearLayoutManager.HORIZONTAL, false)
-
+                val linearLayoutManager = LinearLayoutManager(this@ActivityMenu, LinearLayoutManager.HORIZONTAL, false)
                 val adapter = CategoriaRVAdapter(datos.categorias) { categoria ->
+                    // Imprimir los datos antes de iniciar la actividad
+                    Log.d("ActivityMenu", "Iniciando ActivityCategoria con los siguientes datos:")
+                    Log.d("ActivityMenu", "Categoria ID: ${categoria.id}")
+                    Log.d("ActivityMenu", "Contador carrito: $contadorCarrito")
+                    Log.d("ActivityMenu", "Productos seleccionados: ${productosEnCarrito.joinToString { it.nombre }}")
+                    Log.d("ActivityMenu", "Precio total carrito: $precioTotalCarrito MXN")
+
                     val intent = Intent(this, ActivityCategoria::class.java)
                     intent.putExtra("categoriaId", categoria.id)
-                    startActivity(intent)
+                    intent.putExtra("contador_carrito", contadorCarrito)
+                    intent.putParcelableArrayListExtra("productos_seleccionados", ArrayList(productosEnCarrito))
+                    intent.putExtra("precio_total_carrito", precioTotalCarrito)
+                    startActivityForResult(intent, 1)
                 }
                 binding.rvCategorias.layoutManager = linearLayoutManager
                 binding.rvCategorias.adapter = adapter
@@ -94,10 +114,38 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
 
     override fun onItemClick(producto: Producto) {
         productosEnCarrito.add(producto)
-        contadorCarrito++
-        binding.tvContadorCarrito.text = contadorCarrito.toString()
-        precioTotalCarrito = productosEnCarrito.sumBy { it.precio * it.cantidad }
-        Toast.makeText(this, "Producto agregado al carrito", Toast.LENGTH_SHORT).show()
+        cantidadProductosAgregados++
+        contadorCarrito = cantidadProductosAgregados
+        precioTotalCarrito += producto.precio
+        binding.tvContadorCarrito.text = cantidadProductosAgregados.toString()
+        Log.d("ActivityMenu", "Precio total del carrito: $precioTotalCarrito MXN")
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            // Procesar los datos recibidos aquí desde ActivityCategoria
+            if (data != null) {
+                contadorCarrito = data.getIntExtra("cantidad_productos", 0)
+                cantidadProductosAgregados = contadorCarrito
+                val productosList = data.getParcelableArrayListExtra<Producto>("productos_en_carrito")
+                productosEnCarrito.clear()
+                if (productosList != null) {
+                    productosEnCarrito.addAll(productosList)
+                }
+                precioTotalCarrito = data.getIntExtra("precio_total", 0)
+
+                // Actualizar la interfaz de usuario según los datos recibidos
+                binding.tvContadorCarrito.text = cantidadProductosAgregados.toString()
+            }
+        }
+    }
+
+
+
+    private fun obtenerProductos(): List<Producto> {
+        return listOf(Producto(1, "Producto de ejemplo", 100, 0, 0))
     }
 
     private fun obtenerCategorias(token: String?) {
@@ -118,43 +166,25 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
 
     private fun obtenerProductos(token: String?) {
         val todosLosProductos = mutableListOf<Producto>()
-        // Obtener los productos de cada categoría y almacenar los nombres de las categorías en el mapa
         for (i in 1..5) {
             val categoria = "api/Producto/Categoria/$i"
-
             PeticionHTTP.peticionGETP(this@ActivityMenu, "", categoria, token) { success, response ->
                 if (success && response != null && response is RespuestaProductos) {
                     val productos = response.productos
-                    // Agregar los productos de esta categoría a la lista de todos los productos
                     todosLosProductos.addAll(productos.map {
-                        Producto(
-                            it.id,
-                            it.nombre,
-                            it.precio,
-                            it.descuento,
-                            it.categoriaProductoId
-                        )
+                        Producto(it.id, it.nombre, it.precio, it.descuento, it.categoriaProductoId)
                     })
-
-                    // Si todas las solicitudes han finalizado, actualizar el RecyclerView
                     if (i == 5) {
                         mostrarProductos(todosLosProductos)
                     }
                 } else {
-                    // Si hubo un error o la respuesta es nula
                     val errorMessage = response?.let {
-                        // Si la respuesta no es nula, pero hubo un error en la respuesta
-                        Log.e(
-                            "ActivityMenu",
-                            "Error al obtener la lista de nombres y precios de productos: $it"
-                        )
+                        Log.e("ActivityMenu", "Error al obtener la lista de nombres y precios de productos: $it")
                         "Error al obtener la lista de nombres y precios de productos: $it"
                     } ?: run {
-                        // Si la respuesta es nula
                         Log.e("ActivityMenu", "La respuesta del servidor es nula.")
                         "La respuesta del servidor es nula."
                     }
-                    // Mostrar el mensaje de error
                     Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
                 }
             }
@@ -168,7 +198,6 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             layoutManager = linearLayoutManager
             adapter = productoAdapter
         }
-        // Establecer el listener del adaptador
         productoAdapter.setOnItemClickListener(this)
     }
 
@@ -176,4 +205,10 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         val sharedPreferences = getSharedPreferences("sesion", MODE_PRIVATE)
         return sharedPreferences.getString("token", null)
     }
+
+
+
+
+
 }
+
