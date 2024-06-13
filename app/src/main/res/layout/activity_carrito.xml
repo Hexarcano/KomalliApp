@@ -7,49 +7,146 @@
     android:layout_height="match_parent"
     tools:context=".ActivityCarrito">
 
-    <include
-        android:id="@+id/logos"
-        layout="@layout/logos_institucionales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+    <LinearLayout
+        android:layout_width="417dp"
+        android:layout_height="52dp"
+        android:background="#33B249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="683dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UNIVERSIDAD VERACRUZANA"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="422dp"
+        android:layout_height="147dp"
+        android:background="#33b249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="38dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/voluntariado" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/comedores" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="96dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/komalli2" />
+
+    <ImageView
+        android:id="@+id/iv_carritoVacio"
+        android:layout_width="140dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="136dp"
+        android:src="@drawable/carrito_vacio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEmptyCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El carrito está vacío"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/iv_carritoVacio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+
+    <Button
+        android:id="@+id/bt_regresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="68dp"
+        android:backgroundTint="#33b249"
+        android:text="Regresar al menu"
+        app:cornerRadius="10px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/bt_pagar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="#33b249"
+        android:text="Pagar"
+        app:cornerRadius="10px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCarrito"
+        android:layout_width="357dp"
+        android:layout_height="269dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="200dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Cambia la orientación del RecyclerView a vertical -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_totalPagar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="508dp"
+        android:text="Total: 0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img_carrito_vacio"
-        android:layout_width="140dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="120dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/carrito_vacio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logos" />
-
-    <TextView
-        android:id="@+id/tv_carrito_vacio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="@string/orden_vacia"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_carrito_vacio" />
-
-    <Button
-        android:id="@+id/btn_regresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#33b249"
-        android:text="@string/regresar_menu"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_carrito_vacio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

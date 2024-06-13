@@ -21,4 +21,5 @@
     <string name="orden_vacia">La orden está vacía</string>
     <string name="regresar_menu">Regresar al menú</string>
     <string name="menu">Menú</string>
+    <string name="total_pagar">Total a pagar: $%d</string>
 </resources>

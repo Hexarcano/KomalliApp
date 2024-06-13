@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.koushikdutta.ion.Ion
 import mx.uv.komalliapp.models.ISerializable
 import mx.uv.komalliapp.models.DatosSesionRespuesta
+import mx.uv.komalliapp.models.RespuestaProductos
 import mx.uv.komalliapp.utils.Constantes
 
 class PeticionHTTP {
@@ -71,6 +72,40 @@ class PeticionHTTP {
                             val respuesta = gson.fromJson(result, tipoRespuesta)
 
                             respuestaCallback(true, respuesta)
+                        }
+                    }
+                }
+        }
+
+        // Función de extensión para aceptar un TypeToken como tipo de respuesta
+        fun peticionGETP(
+            context: Context,
+            id: String,
+            path: String,
+            token: String?,
+            respuestaCallback: (Boolean, Any?) -> Unit
+        ) {
+            Ion.with(context)
+                .load("GET", "${Constantes.urlBase}/${path}/${id}")
+                .setHeader("Content-Type", "application/json")
+                .setHeader("Authorization", token)
+                .asString()
+                .setCallback { error, result ->
+                    run {
+                        if (error != null) {
+                            respuestaCallback(false, "Error en la petición: ${error.message}")
+                        } else {
+                            try {
+                                val gson = Gson()
+                                val respuesta =
+                                    gson.fromJson(result, RespuestaProductos::class.java)
+                                respuestaCallback(true, respuesta)
+                            } catch (e: Exception) {
+                                respuestaCallback(
+                                    false,
+                                    "Error al procesar la respuesta: ${e.message}"
+                                )
+                            }
                         }
                     }
                 }

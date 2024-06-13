@@ -31,9 +31,9 @@ class ProductoRVAdapter(
     override fun onBindViewHolder(itemProducto: ItemProducto, position: Int) {
         itemProducto.tvProducto.text = "Producto: ${datos[position].nombre}"
 
-        if (datos[position].porcentajeDescuento > 0) {
+        if (datos[position].descuento > 0) {
             val precioOriginal = datos[position].precio
-            val porcentajeDescuento = datos[position].porcentajeDescuento
+            val porcentajeDescuento = datos[position].descuento
             val descuento = precioOriginal * (porcentajeDescuento / 100.0)
             val precioConDescuento = precioOriginal - descuento
 

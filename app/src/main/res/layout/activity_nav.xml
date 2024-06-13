@@ -8,47 +8,37 @@
     tools:context=".ActivityNav">
 
     <LinearLayout
-        android:layout_width="416dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#33b249"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="685dp">
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UNIVERSIDAD VERACRUZANA"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="422dp"
-        android:layout_height="147dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#33b249"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-8dp"
-        tools:layout_editor_absoluteY="36dp">
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="5dip"
+            android:layout_margin="5dp"
             android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/voluntariado" />
 
     </LinearLayout>
 
@@ -57,60 +47,52 @@
         android:layout_width="96dp"
         android:layout_height="82dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
         app:srcCompat="@drawable/komalli2" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="96dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/voluntariado" />
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="96dp"
         android:layout_height="82dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
         app:srcCompat="@drawable/comedores" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:layout_marginEnd="176dp"
+        android:layout_marginTop="16dp"
         android:text="Menu"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView6" />
 
     <ImageView
         android:id="@+id/br_menuS3"
         android:layout_width="29dp"
         android:layout_height="36dp"
-        android:src="@drawable/menu"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="200dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView17"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/menu" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="271dp"
         android:layout_height="393dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="268dp"
         app:cardBackgroundColor="#defbe3"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/br_menuS3"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:padding="4dp"
@@ -122,141 +104,165 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Principal"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="16dp" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paquetes"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="61dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView18"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Antojitos"
-                tools:layout_editor_absoluteX="59dp"
-                tools:layout_editor_absoluteY="102dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView19"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tortas y sandwiches"
-                tools:layout_editor_absoluteX="53dp"
-                tools:layout_editor_absoluteY="142dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView20"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Guarniciones"
-                tools:layout_editor_absoluteX="57dp"
-                tools:layout_editor_absoluteY="187dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView21"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bebidas"
-                tools:layout_editor_absoluteX="57dp"
-                tools:layout_editor_absoluteY="226dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView22"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Postres"
-                tools:layout_editor_absoluteX="57dp"
-                tools:layout_editor_absoluteY="271dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView23"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Otros"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="317dp" />
+                app:layout_constraintTop_toBottomOf="@id/textView24"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="186dp">
-
-            </ImageView>
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="20dp"
-                android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="209dp"
-                tools:layout_editor_absoluteY="16dp">
-
-            </ImageView>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView22"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="145dp">
-
-            </ImageView>
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="20dp"
-                android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="105dp">
-
-            </ImageView>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView18"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="64dp">
-
-            </ImageView>
-
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="20dp"
-                android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="321dp">
-
-            </ImageView>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView21"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="275dp">
-
-            </ImageView>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView20"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:src="@drawable/flechaabajo"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="229dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView19"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
-            </ImageView>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView25"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView24"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/flechaabajo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView23"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="135dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/voluntariado" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
