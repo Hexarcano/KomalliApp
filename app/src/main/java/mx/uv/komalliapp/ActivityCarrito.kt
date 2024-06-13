@@ -1,6 +1,9 @@
 package mx.uv.komalliapp
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,6 +21,8 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
     private lateinit var carritoAdapter: CarroAdapter
     private var productosEnCarrito: MutableList<ProductoOrdenConsulta> = mutableListOf()
     private var precioTotalCarrito: Int = 0
+    private var cantidadProductosAgregados: Int = 0
+    private var contadorCarrito: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +36,8 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
 
         // Obtener el precio total del intent
         precioTotalCarrito = intent.getIntExtra("precio_total", 0)
+        cantidadProductosAgregados = intent.getIntExtra("cantidad_productos", 0)
+        contadorCarrito = intent.getIntExtra("contador_carrito", 0)
 
         // Inicializar RecyclerView y su adaptador
         productosEnCarritoRecyclerView = findViewById(R.id.recyclerCarrito)
@@ -70,6 +77,7 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
 
             // Reducir el precio total
             precioTotalCarrito -= productoOrden.precioUnitario
+            cantidadProductosAgregados--
 
             // Remover el producto del carrito
             productosEnCarrito.removeAt(position)
@@ -85,5 +93,23 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
     private fun actualizarTotalPagar() {
         val tvTotalPagar = findViewById<TextView>(R.id.tv_totalPagar)
         tvTotalPagar.text = "$precioTotalCarrito MXN"
+    }
+
+    override fun onBackPressed() {
+        // Preparar datos para enviar de regreso a la actividad anterior
+        val intent = Intent()
+        val productosParcelable = productosEnCarrito.map { it.toParcelable() }
+        intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
+        intent.putExtra("cantidad_productos", cantidadProductosAgregados)
+        intent.putExtra("precio_total", precioTotalCarrito)
+
+        // Imprimir en el log los datos que estás enviando de regreso
+        Log.d("ActivityCarrito", "Productos en el carrito: ${productosEnCarrito.map { it.productoId }}")
+        Log.d("ActivityCarrito", "Cantidad de productos en el carrito: $cantidadProductosAgregados")
+        Log.d("ActivityCarrito", "Precio total del carrito: $precioTotalCarrito MXN")
+
+        // Devolver datos a la actividad anterior
+        setResult(Activity.RESULT_OK, intent)
+        super.onBackPressed()
     }
 }

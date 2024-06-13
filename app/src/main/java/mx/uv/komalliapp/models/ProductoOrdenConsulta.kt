@@ -39,4 +39,8 @@ data class ProductoOrdenConsulta(
             return arrayOfNulls(size)
         }
     }
+
+    fun toParcelable(): ParcelableProducto {
+        return ParcelableProducto(ordenId, productoId, precioUnitario, cantidad, subtotalProductos)
+    }
 }

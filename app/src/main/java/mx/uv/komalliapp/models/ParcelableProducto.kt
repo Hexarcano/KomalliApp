@@ -44,3 +44,6 @@ data class ParcelableProducto(
 fun ParcelableProducto.toProducto(): Producto {
     return Producto(id, nombre, precio, descuento, categoriaProductoId)
 }
+
+
+
