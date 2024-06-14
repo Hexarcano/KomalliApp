@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -41,6 +42,11 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btAyuda.setOnClickListener{
+            val intent = Intent(this,ActivityAyuda::class.java)
+            startActivity(intent);
+        }
 
         val productos = obtenerProductos()
         productoAdapter = ProductoAdapter(productos, emptyList())
@@ -207,10 +213,5 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         val sharedPreferences = getSharedPreferences("sesion", MODE_PRIVATE)
         return sharedPreferences.getString("token", null)
     }
-
-
-
-
-
 }
 

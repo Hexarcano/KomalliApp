@@ -119,10 +119,11 @@
         android:id="@+id/bt_ayuda"
         android:layout_width="29dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/ayuda"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include layout="@layout/footer_app"
         android:layout_width="match_parent"
