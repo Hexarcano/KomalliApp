@@ -38,6 +38,8 @@ class ActivitySeleccionPago : AppCompatActivity() {
         val cantidadProductos = intent.getIntExtra("cantidad_productos", 0)
         val precioTotal = intent.getIntExtra("precio_total", 0)
         val nota = intent.getStringExtra("nota")
+        Log.d("ActivityCarrito", "RECIBO TOTAL: $precioTotal")
+        precioTotalCarrito = precioTotal
 
         binding.btnPagoEfectivo.setOnClickListener {
             val intent = Intent(this, ActivityPagoEfectivo::class.java)

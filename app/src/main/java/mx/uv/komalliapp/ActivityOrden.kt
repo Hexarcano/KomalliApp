@@ -64,7 +64,7 @@ class ActivityOrden : AppCompatActivity() {
             val productosParcelable = productosEnCarrito.map { it.toParcelable() }
             intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
             intent.putExtra("cantidad_productos", cantidadProductosAgregados)
-            intent.putExtra("precio_total", precioTotalCarrito)
+            intent.putExtra("precio_total", precioTotal)
             intent.putExtra("nota", notaRecibida)
             Log.d("ActivityCarrito", "Enviando NOTA: $notaRecibida")
             startActivity(intent)

@@ -43,9 +43,10 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btAyuda.setOnClickListener{
-            val intent = Intent(this,ActivityAyuda::class.java)
-            startActivity(intent);
+        val btAyuda: ImageView = findViewById(R.id.bt_ayuda)
+        btAyuda.setOnClickListener {
+            val intent = Intent(this, ActivityAyuda::class.java)
+            startActivity(intent)
         }
 
         val productos = obtenerProductos()
