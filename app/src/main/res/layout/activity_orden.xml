@@ -85,15 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="29dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="216dp"
-        android:src="@drawable/flecha_izquierda"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="347dp"
         android:layout_height="291dp"
@@ -110,32 +101,22 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/textView86"
+                android:id="@+id/tv_productos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
                 android:text="Producto: "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView87"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginBottom="192dp"
-                android:text="Precio:"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/textView92"
+                android:id="@+id/tv_pagarTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total: "
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="121dp" />
+                tools:layout_editor_absoluteX="33dp"
+                tools:layout_editor_absoluteY="106dp" />
 
             <LinearLayout
                 android:id="@+id/linearLayoutBottom"
@@ -149,7 +130,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tv_nota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -162,14 +143,16 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/bt_agregar"
-        android:layout_width="122dp"
-        android:layout_height="50dp"
+        android:id="@+id/bt_crearOrden"
+        android:layout_width="123dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="592dp"
         android:backgroundTint="#33b349"
-        android:text="Pagar"
+        android:text="Crear Orden"
         app:cornerRadius="10px"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="598dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

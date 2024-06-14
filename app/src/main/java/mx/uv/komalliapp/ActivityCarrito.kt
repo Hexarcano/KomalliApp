@@ -7,47 +7,79 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mx.uv.komalliapp.adapters.CarroAdapter
+import mx.uv.komalliapp.databinding.ActivityCarritoBinding
 import mx.uv.komalliapp.models.ParcelableProducto
+import mx.uv.komalliapp.models.Producto
 import mx.uv.komalliapp.models.ProductoOrdenConsulta
 
 class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
 
+    private lateinit var binding: ActivityCarritoBinding
     private lateinit var productosEnCarritoRecyclerView: RecyclerView
     private lateinit var carritoAdapter: CarroAdapter
-    private var productosEnCarrito: MutableList<ProductoOrdenConsulta> = mutableListOf()
+    private var productosEnCarrito: MutableList<Producto> = mutableListOf()
     private var precioTotalCarrito: Int = 0
     private var cantidadProductosAgregados: Int = 0
     private var contadorCarrito: Int = 0
+    private var notaRecibida: String? = ""
+
+    companion object {
+        private const val REQUEST_CODE_NOTA = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_carrito)
+        binding = ActivityCarritoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Obtener productos en el carrito desde el intent
-        val productosParcelable = intent.getParcelableArrayListExtra<ParcelableProducto>("productos_en_carrito")
+        val nota = intent.getStringExtra("nota")
+        if (nota != null) {
+            Log.d("ActivityCarrito", "Nota recibida: $nota")
+            Toast.makeText(this, "Nota guardada: $nota", Toast.LENGTH_LONG).show()
+        } else {
+            Log.d("ActivityCarrito", "No se recibió ninguna nota")
+        }
+
+        val productosParcelable =
+            intent.getParcelableArrayListExtra<ParcelableProducto>("productos_en_carrito")
         productosEnCarrito = productosParcelable?.map {
-            ProductoOrdenConsulta(it.id, it.nombre, it.precio, it.descuento, it.categoriaProductoId)
+            Producto(it.id, it.nombre, it.precio, it.descuento, it.categoriaProductoId)
         }?.toMutableList() ?: mutableListOf()
 
-        // Obtener el precio total del intent
         precioTotalCarrito = intent.getIntExtra("precio_total", 0)
         cantidadProductosAgregados = intent.getIntExtra("cantidad_productos", 0)
         contadorCarrito = intent.getIntExtra("contador_carrito", 0)
 
-        // Inicializar RecyclerView y su adaptador
         productosEnCarritoRecyclerView = findViewById(R.id.recyclerCarrito)
         carritoAdapter = CarroAdapter(productosEnCarrito, this)
         productosEnCarritoRecyclerView.layoutManager = LinearLayoutManager(this)
         productosEnCarritoRecyclerView.adapter = carritoAdapter
 
-        // Mostrar el total a pagar inicial
         actualizarTotalPagar()
         actualizarVisibilidadMensajeCarritoVacio()
+
+        binding.btNota.setOnClickListener {
+            val intent = Intent(this, ActivityNota::class.java)
+            startActivityForResult(intent, REQUEST_CODE_NOTA)
+        }
+
+        binding.btIrPagar.setOnClickListener {
+            val intent = Intent(this, ActivityOrden::class.java)
+            val productosParcelable = productosEnCarrito.map { it.toParcelable() }
+            intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
+            intent.putExtra("cantidad_productos", cantidadProductosAgregados)
+            intent.putExtra("precio_total", precioTotalCarrito)
+            intent.putExtra("nota", notaRecibida)
+            Log.d("ActivityCarrito", "Enviando NOTA: $notaRecibida")
+            startActivity(intent)
+        }
     }
 
     // Actualizar visibilidad de elementos cuando el carrito está vacío o no
@@ -71,12 +103,8 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
         val productoOrden = productosEnCarrito[position]
 
         if (eliminar) {
-            // Disminuir la cantidad a cero para eliminar el producto del carrito
-            productoOrden.cantidad = 0
-            productoOrden.subtotalProductos = 0
-
             // Reducir el precio total
-            precioTotalCarrito -= productoOrden.precioUnitario
+            precioTotalCarrito -= productoOrden.precio
             cantidadProductosAgregados--
 
             // Remover el producto del carrito
@@ -96,20 +124,31 @@ class ActivityCarrito : AppCompatActivity(), CarroAdapter.OnItemClickListener {
     }
 
     override fun onBackPressed() {
-        // Preparar datos para enviar de regreso a la actividad anterior
         val intent = Intent()
         val productosParcelable = productosEnCarrito.map { it.toParcelable() }
         intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
         intent.putExtra("cantidad_productos", cantidadProductosAgregados)
         intent.putExtra("precio_total", precioTotalCarrito)
 
-        // Imprimir en el log los datos que estás enviando de regreso
-        Log.d("ActivityCarrito", "Productos en el carrito: ${productosEnCarrito.map { it.productoId }}")
+        Log.d("ActivityCarrito", "Productos en el carrito: ${productosEnCarrito.map { it.id }}")
         Log.d("ActivityCarrito", "Cantidad de productos en el carrito: $cantidadProductosAgregados")
         Log.d("ActivityCarrito", "Precio total del carrito: $precioTotalCarrito MXN")
 
-        // Devolver datos a la actividad anterior
         setResult(Activity.RESULT_OK, intent)
         super.onBackPressed()
+    }
+
+    // Manejar el resultado de ActivityNota
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_NOTA && resultCode == Activity.RESULT_OK) {
+            val nota = data?.getStringExtra("nota")
+            notaRecibida = nota
+            nota?.let {
+                Log.d("ActivityCarrito", "Nota recibida: $nota")
+                Toast.makeText(this, "Nota guardada: $nota", Toast.LENGTH_LONG).show()
+                // Actualizar la nota en la variable y actualizar la vista si es necesario
+            }
+        }
     }
 }

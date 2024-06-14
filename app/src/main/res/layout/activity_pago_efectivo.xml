@@ -144,28 +144,24 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView106"
+                android:id="@+id/tv_productosPE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="84dp"
                 android:text="Producto"
-                tools:layout_editor_absoluteX="40dp"
-                tools:layout_editor_absoluteY="65dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView107"
+                android:id="@+id/tv_TotalPE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Producto"
-                tools:layout_editor_absoluteX="36dp"
-                tools:layout_editor_absoluteY="113dp" />
-
-            <TextView
-                android:id="@+id/textView108"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="168dp"
                 android:text="Total:"
-                tools:layout_editor_absoluteX="144dp"
-                tools:layout_editor_absoluteY="184dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

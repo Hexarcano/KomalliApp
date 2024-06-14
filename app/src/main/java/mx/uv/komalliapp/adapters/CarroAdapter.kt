@@ -7,10 +7,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.uv.komalliapp.R
-import mx.uv.komalliapp.models.ProductoOrdenConsulta
+import mx.uv.komalliapp.models.Producto
 
 class CarroAdapter(
-    private val productosEnCarrito: List<ProductoOrdenConsulta>,
+    private val productosEnCarrito: List<Producto>,
     private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<CarroAdapter.CarroViewHolder>() {
 
@@ -23,9 +23,9 @@ class CarroAdapter(
         private val precioProducto: TextView = itemView.findViewById(R.id.tv_precioUnitario)
         private val btnDisminuir: Button = itemView.findViewById(R.id.btn_disminuir)
 
-        fun bind(producto: ProductoOrdenConsulta) {
-            nombreProducto.text = producto.productoId
-            precioProducto.text = "${producto.precioUnitario} MXN"
+        fun bind(producto: Producto) {
+            nombreProducto.text = producto.nombre
+            precioProducto.text = "${producto.precio} MXN"
 
             btnDisminuir.setOnClickListener {
                 listener.onItemClick(adapterPosition, true)

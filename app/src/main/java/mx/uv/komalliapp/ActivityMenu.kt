@@ -65,8 +65,9 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
             intent.putExtra("cantidad_productos", cantidadProductosAgregados)
             intent.putExtra("precio_total", precioTotalCarrito)
-            startActivityForResult(intent, 1) // Usamos requestCode 1 (puede ser cualquier número único)
+            startActivityForResult(intent, 1)
         }
+
 
         productoAdapter.setOnItemClickListener(this)
         obtenerCategorias(token)
@@ -125,22 +126,23 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            // Procesar los datos recibidos aquí desde ActivityCategoria
             if (data != null) {
                 contadorCarrito = data.getIntExtra("cantidad_productos", 0)
                 cantidadProductosAgregados = contadorCarrito
-                val productosList = data.getParcelableArrayListExtra<Producto>("productos_en_carrito")
+                val productosList = data.getParcelableArrayListExtra<ParcelableProducto>("productos_en_carrito")
                 productosEnCarrito.clear()
                 if (productosList != null) {
-                    productosEnCarrito.addAll(productosList)
+                    productosEnCarrito.addAll(productosList.map {
+                        Producto(it.id, it.nombre, it.precio, it.descuento, it.categoriaProductoId)
+                    })
                 }
                 precioTotalCarrito = data.getIntExtra("precio_total", 0)
-
-                // Actualizar la interfaz de usuario según los datos recibidos
                 binding.tvContadorCarrito.text = cantidadProductosAgregados.toString()
             }
         }
     }
+
+
 
 
 

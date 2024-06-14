@@ -86,12 +86,14 @@ class ActivityCategoria : AppCompatActivity(), ProductoAdapter.OnItemClickListen
 
         // Configurar listener para el botón del carrito usando binding
         binding.btnCarrito.setOnClickListener {
+            Log.d("ActivityMenu", "Precio total a pasar al carrito: $precioTotalCarrito MXN")
+
             val intent = Intent(this, ActivityCarrito::class.java)
             val productosParcelable = productosSeleccionados.map { it.toParcelable() }
             intent.putParcelableArrayListExtra("productos_en_carrito", ArrayList(productosParcelable))
             intent.putExtra("cantidad_productos", contadorCarrito)
             intent.putExtra("precio_total", precioTotalCarrito)
-            startActivity(intent)
+            startActivityForResult(intent, 1)
         }
 
         // Ajustar el padding de la ventana para manejar la barra de sistema
@@ -102,6 +104,25 @@ class ActivityCategoria : AppCompatActivity(), ProductoAdapter.OnItemClickListen
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                contadorCarrito = data.getIntExtra("cantidad_productos", 0)
+                cantidadCarrito = contadorCarrito
+                val productosList = data.getParcelableArrayListExtra<ParcelableProducto>("productos_en_carrito")
+                productosSeleccionados.clear()
+                if (productosList != null) {
+                    productosSeleccionados.addAll(productosList.map {
+                        Producto(it.id, it.nombre, it.precio, it.descuento, it.categoriaProductoId)
+                    })
+                }
+                precioTotalCarrito = data.getIntExtra("precio_total", 0)
+                binding.tvContadorCarrito.text = cantidadCarrito.toString()
+            }
+        }
+    }
     private fun obtenerDatosDesdeIntent() {
         contadorCarrito = intent.getIntExtra("contador_carrito", 0)
         val productosList = intent.getParcelableArrayListExtra<ParcelableProducto>("productos_seleccionados")
@@ -111,7 +132,6 @@ class ActivityCategoria : AppCompatActivity(), ProductoAdapter.OnItemClickListen
         }
         precioTotalCarrito = intent.getIntExtra("precio_total_carrito", 0)
     }
-
 
 
     private fun actualizarCarrito() {

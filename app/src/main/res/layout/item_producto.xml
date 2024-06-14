@@ -18,24 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/iv_producto"
-                android:layout_width="96dp"
-                android:layout_height="109dp"
-                android:layout_margin="12dp"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
             <TextView
                 android:id="@+id/tv_producto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="60dp"
                 android:text="Producto"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,11 +43,12 @@
 
             <TextView
                 android:id="@+id/tv2_categoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="124dp"
+                android:layout_width="104dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 android:text="Categoria"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,8 +56,8 @@
                 android:id="@+id/tv_precio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="112dp"
                 android:text="Precio"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

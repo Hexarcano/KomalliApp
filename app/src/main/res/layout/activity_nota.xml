@@ -8,24 +8,6 @@
     tools:context=".ActivityNota">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="417dp"
-        android:layout_height="52dp"
-        android:background="#33B249"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="681dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="UNIVERSIDAD VERACRUZANA"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="422dp"
         android:layout_height="147dp"
@@ -41,8 +23,24 @@
             android:text="FACULTAD DE ESTADISTICA E INFORMATICA"
             android:textAlignment="center"
             android:textColor="#FFFFFF" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="417dp"
+        android:layout_height="52dp"
+        android:background="#33B249"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="681dp">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UNIVERSIDAD VERACRUZANA"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <ImageView
@@ -76,16 +74,6 @@
         app:srcCompat="@drawable/comedores" />
 
     <ImageView
-        android:id="@+id/btn_regresar1"
-        android:layout_width="29dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="220dp"
-        android:src="@drawable/flecha_izquierda"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:layout_width="29dp"
         android:layout_height="36dp"
         android:layout_marginTop="220dp"
@@ -105,9 +93,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
-        android:id="@+id/bt_agregar"
+        android:id="@+id/bt_agregarNota"
         android:layout_width="122dp"
         android:layout_height="53dp"
         android:layout_marginEnd="132dp"
@@ -117,7 +104,6 @@
         app:cornerRadius="10px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
     <TextView
         android:id="@+id/textView109"
@@ -130,10 +116,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
+        android:id="@+id/inputNota"
         android:layout_width="312dp"
         android:layout_height="96dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="410dp" />
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="356dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

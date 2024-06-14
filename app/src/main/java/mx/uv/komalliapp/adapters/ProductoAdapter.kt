@@ -36,8 +36,8 @@ class ProductoAdapter(private var productos: List<Producto>, private val categor
             // Si no se encontró, establecer un mensaje predeterminado o manejarlo según sea necesario
             holder.tvCategoria.text = "Categoría desconocida"
         }
-        holder.tvProducto.text = "nombreProducto: ${producto.nombre}"
-        holder.tvPrecio.text = producto.precio.toString()
+        holder.tvProducto.text = "Producto: ${producto.nombre}"
+        holder.tvPrecio.text = "Precio: ${producto.precio.toString()}"
         holder.btn_agregar.setOnClickListener {
             listener?.onItemClick(producto)
         }

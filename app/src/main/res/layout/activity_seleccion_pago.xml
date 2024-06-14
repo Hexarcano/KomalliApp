@@ -17,18 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/btn_regresar"
-        android:layout_width="29dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/flecha_izquierda"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logos"
-        android:contentDescription="@string/regresar" />
-
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -51,15 +41,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logos" />
 
+
     <ImageView
         android:id="@+id/btn_pago_efectivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="152dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_metodo_pago"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        android:layout_width="179dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="368dp"
+        android:src="@drawable/dinero_prestamos_efectivo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +58,7 @@
         android:layout_marginTop="36dp"
         android:text="Efectivo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_pago_efectivo" />
 
