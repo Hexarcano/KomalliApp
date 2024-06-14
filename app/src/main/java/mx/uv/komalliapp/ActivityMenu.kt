@@ -36,14 +36,17 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
     private var precioTotalCarrito: Int = 0
     private var cantidadProductosAgregados: Int = 0
 
-    val btn_ayuda = findViewById<ImageView>(R.id.bt_ayuda);
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btAyuda.setOnClickListener{
+            val intent = Intent(this,ActivityAyuda::class.java)
+            startActivity(intent);
+        }
 
         val productos = obtenerProductos()
         productoAdapter = ProductoAdapter(productos, emptyList())
@@ -112,11 +115,6 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
-
-        btn_ayuda.setOnClickListener{
-            val intent = Intent(this,ActivityAyuda::class.java)
-            startActivity(intent);
         }
     }
 
@@ -213,10 +211,5 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         val sharedPreferences = getSharedPreferences("sesion", MODE_PRIVATE)
         return sharedPreferences.getString("token", null)
     }
-
-
-
-
-
 }
 
