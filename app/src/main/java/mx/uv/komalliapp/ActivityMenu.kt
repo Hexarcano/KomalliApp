@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -34,6 +35,8 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
     private var contadorCarrito: Int = 0
     private var precioTotalCarrito: Int = 0
     private var cantidadProductosAgregados: Int = 0
+
+    val btn_ayuda = findViewById<ImageView>(R.id.bt_ayuda);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +112,11 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        btn_ayuda.setOnClickListener{
+            val intent = Intent(this,ActivityAyuda::class.java)
+            startActivity(intent);
         }
     }
 
