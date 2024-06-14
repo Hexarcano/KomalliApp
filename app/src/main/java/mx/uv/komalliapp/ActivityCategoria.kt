@@ -17,10 +17,9 @@ import mx.uv.komalliapp.models.CategoriaProductoRespuesta
 import mx.uv.komalliapp.models.ParcelableProducto
 import mx.uv.komalliapp.models.Producto
 import mx.uv.komalliapp.models.ProductoRespuesta
-import mx.uv.komalliapp.models.toParcelable
-import mx.uv.komalliapp.models.toProducto
 import mx.uv.komalliapp.requests.PeticionHTTP
 import mx.uv.komalliapp.utils.ProductoRVAdapter
+import mx.uv.komalliapp.models.toProducto
 
 class ActivityCategoria : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
     private lateinit var binding: ActivityCategoriaBinding
@@ -108,10 +107,12 @@ class ActivityCategoria : AppCompatActivity(), ProductoAdapter.OnItemClickListen
         val productosList = intent.getParcelableArrayListExtra<ParcelableProducto>("productos_seleccionados")
         productosSeleccionados.clear()
         if (productosList != null) {
-            productosSeleccionados.addAll(productosList.map { it.toProducto() }) // Convertir de ParcelableProducto a Producto si es necesario
+            productosSeleccionados.addAll(productosList.map { it.toProducto() })
         }
         precioTotalCarrito = intent.getIntExtra("precio_total_carrito", 0)
     }
+
+
 
     private fun actualizarCarrito() {
         // Actualizar el contador de carrito en la interfaz de usuario

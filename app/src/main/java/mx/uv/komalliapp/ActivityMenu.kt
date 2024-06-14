@@ -60,8 +60,7 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
         }
 
         // Configurar listener para el botón del carrito usando binding
-        val btnCarrito: ImageView = findViewById(R.id.btn_carrito)
-        btnCarrito.setOnClickListener {
+        binding.btnCarrito.setOnClickListener {
             Log.d("ActivityMenu", "Precio total a pasar al carrito: $precioTotalCarrito MXN")
 
             val intent = Intent(this, ActivityCarrito::class.java)
@@ -95,9 +94,10 @@ class ActivityMenu : AppCompatActivity(), ProductoAdapter.OnItemClickListener {
                     Log.d("ActivityMenu", "Precio total carrito: $precioTotalCarrito MXN")
 
                     val intent = Intent(this, ActivityCategoria::class.java)
+                    val productosParcelable = productosEnCarrito.map { it.toParcelable() }
                     intent.putExtra("categoriaId", categoria.id)
                     intent.putExtra("contador_carrito", contadorCarrito)
-                    intent.putParcelableArrayListExtra("productos_seleccionados", ArrayList(productosEnCarrito))
+                    intent.putParcelableArrayListExtra("productos_seleccionados", ArrayList(productosParcelable))
                     intent.putExtra("precio_total_carrito", precioTotalCarrito)
                     startActivityForResult(intent, 1)
                 }

@@ -33,6 +33,8 @@ data class Producto(
         return 0
     }
 
+
+
     companion object CREATOR : Parcelable.Creator<Producto> {
         override fun createFromParcel(parcel: Parcel): Producto {
             return Producto(parcel)
